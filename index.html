@@ -1,1 +1,21 @@
-<h1>Hello World</h1> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Мій віджет</title>
+</head>
+<body>
+  <h1>Погода сьогодні</h1>
+  <div id="weather">Завантаження...</div>
+
+  <script>
+    // Простий приклад віджета
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=Lviv&appid=ТВІЙ_API_КЛЮЧ&units=metric')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('weather').innerText = 
+          `Температура у Львові: ${data.main.temp}°C`;
+      });
+  </script>
+</body>
+</html>
